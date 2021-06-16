@@ -1,0 +1,32 @@
+{
+    "orders": [
+        {
+            "item": "chair",
+            "quantity": "4",
+            "price": "500",
+            "buyer": "Dmitry",
+            "date": "16.06.2021"
+        },
+        {
+            "item": "table",
+            "quantity": "1",
+            "price": "50000",
+            "buyer": "Dmitry",
+            "date": "16.06.2021"
+        },
+        {
+            "item": "glass",
+            "quantity": "30",
+            "price": "150",
+            "buyer": "Dmitry",
+            "date": "16.06.2021"
+        },
+        {
+            "item": "glass",
+            "quantity": "30",
+            "price": "150",
+            "buyer": "Dmitry",
+            "date": "16.06.2021"
+        }
+    ]
+}

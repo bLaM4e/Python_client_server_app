@@ -1,0 +1,9 @@
+key1:
+- 10
+- string
+- !!python/name:builtins.bool ''
+key2: 100
+key3:
+  key1: 5€
+  key2: 6€
+  key3: 7€
