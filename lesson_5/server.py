@@ -26,15 +26,33 @@ def create_message(msg):
 
 
 def main():
-    port, ip = set_def_port_and_ip()
     data = sys.argv
-    if '-p' in data:
-        port = int(data[data.index('-p') + 1])
-    if '-a' in data:
-        ip = data[data.index('-a') + 1]
+    try:
+        if '-p' in data:
+            port = int(data[data.index('-p') + 1])
+        else:
+            port = val_def['DEFAULT_PORT']
+            log_server.warning(f'Был задан порт по умолчанию {port}')
+    except IndexError:
+        log_server.critical('После -"р" не указан порт')
+        sys.exit(1)
+    except ValueError:
+        log_server.critical(f'После -"р" не указан порт -- {data}')
+        sys.exit(1)
+
+    try:
+        if '-a' in data:
+            ip = data[data.index('-a') + 1]
+        else:
+            ip = val_def['DEFAULT_IP_ADDRESS']
+            log_server.warning(f'Был задан ip-адрес по умолчанию {ip}')
+    except IndexError:
+        log_server.critical('После -"р" не указан порт')
+        sys.exit(1)
 
     is_val = is_valid_port_and_ip(port, ip)
     if not is_val:
+        log_server.warning('Допущена ошибка в написание ip-адреса или порта')
         port, ip = set_def_port_and_ip()
 
     s = socket(AF_INET, SOCK_STREAM)
